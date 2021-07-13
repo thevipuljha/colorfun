@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheet.css" />
+    <script src="script.js" defer></script>
     <title>TITLE OF PAGE</title>
   </head>
   <body>
@@ -13,7 +14,11 @@
     </div>
     <div class="color-option">
       <div class="color-numbers-div">
-        <button class="color-number-change-button" id="decreaseColorNumber">
+        <button
+          class="color-number-change-button"
+          id="decreaseColorNumber"
+          onclick="decreamentNumberOfColors() "
+        >
           -
         </button>
         <span class="number-of-colors" id="numberOfColors">0</span>
