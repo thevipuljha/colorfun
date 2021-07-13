@@ -1,4 +1,12 @@
-// const getElementById = (id) => document.getElementById(id);
+const getElementById = (id) => document.getElementById(id);
+const getRandomNumber = () => Math.round(Math.random() * 256);
+
+function getRandomColor() {
+  const red = getRandomNumber();
+  const green = getRandomNumber();
+  const blue = getRandomNumber();
+  return `rgb(${red}, ${green}, ${blue})`;
+}
 
 function getNewColorDiv() {
   const newElement = document.createElement("div");
@@ -30,6 +38,8 @@ function generatePallete() {
     `${currentNumberOfColors}`
   );
   for (let i = 0; i < currentNumberOfColors; i++) {
-    palleteDiv.appendChild(getNewColorDiv());
+    const newColorDiv = getNewColorDiv();
+    newColorDiv.style.backgroundColor = getRandomColor();
+    palleteDiv.appendChild(newColorDiv);
   }
 }
