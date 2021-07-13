@@ -1,0 +1,18 @@
+html {
+    width         : 95%;
+    margin        : 0 auto;
+    /* display    : grid;
+    place-items   : center; */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title-name {
+    border        : 1px solid red;
+    text-transform: uppercase;
+    color         : crimson;
+    text-align    : center;
+    font-size     : xx-large;
+}
