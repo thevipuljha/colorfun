@@ -50,3 +50,17 @@ body {
     font-weight     : bolder;
     border          : none;
 }
+
+.color-pallete {
+    font-size      : larger;
+    font-weight    : 600;
+    margin         : 30px 0;
+    width          : 100%;
+    text-align     : center;
+    color          : crimson;
+    height         : 200px;
+    border         : 1px solid red;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
