@@ -17,7 +17,6 @@ body {
 }
 
 .color-option {
-    border         : 1px solid black;
     width          : 100%;
     display        : flex;
     flex-direction : row;
@@ -32,7 +31,22 @@ body {
     height          : 36px;
     border          : none;
     border-radius   : 50%;
-    padding         : 10x;
     font-size       : x-large;
     font-weight     : bolder;
+}
+
+.number-of-colors {
+    padding    : 10px;
+    font-size  : x-large;
+    font-weight: bolder;
+}
+
+#generateColor {
+    padding         : 0 10px;
+    height          : 36px;
+    border-radius   : 12px;
+    font-size       : medium;
+    background-color: coral;
+    font-weight     : bolder;
+    border          : none;
 }
