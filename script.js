@@ -24,6 +24,11 @@ function generatePallete() {
   const currentNumberOfColors = Number(valueElement.innerText);
   const palleteDiv = document.getElementById("colorPallete");
   palleteDiv.innerHTML = "";
+  palleteDiv.classList.add("has-color-pallete");
+  document.documentElement.style.setProperty(
+    "--current-number-of-colors",
+    `${currentNumberOfColors}`
+  );
   for (let i = 0; i < currentNumberOfColors; i++) {
     palleteDiv.appendChild(getNewColorDiv());
   }

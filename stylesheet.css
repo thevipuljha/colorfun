@@ -1,3 +1,7 @@
+:root {
+    --current-number-of-colors: 3;
+}
+
 html {
     width         : 95%;
     margin        : 0 auto;
@@ -59,8 +63,17 @@ body {
     text-align     : center;
     color          : crimson;
     height         : 200px;
-    border         : 1px solid red;
     display        : flex;
     align-items    : center;
     justify-content: center;
+}
+
+.has-color-pallete {
+    display              : grid;
+    grid-template-columns: repeat(var(--current-number-of-colors), 1fr);
+}
+
+.pallete-color {
+    border: 1px solid red;
+    height: 100%;
 }
