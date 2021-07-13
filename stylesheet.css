@@ -10,9 +10,24 @@ body {
 }
 
 .title-name {
-    border        : 1px solid red;
     text-transform: uppercase;
     color         : crimson;
     text-align    : center;
     font-size     : xx-large;
+}
+
+.color-option {
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+.color-option>div {
+    /* border : 1px solid black; */
+    display: inline-block;
+    width  : 48%;
+}
+
+.color-numbers-div {
+    border: 1px solid tomato;
+
 }
