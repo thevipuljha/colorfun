@@ -3,14 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Color Fun</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Color Fun" />
+    <meta
+      name="description"
+      content="A website for Color scheme generator for CSS3 projects"
+    />
+    <!--   icon to be displayed in mainly tab of the browser and more places   -->
+    <link
+      rel="shortcut icon"
+      onclick="openShareWindow('')"
+      href="favicon.png"
+    />
+    <!--   websites url   -->
+    <link rel="canonical" href="https://thevipuljha.github.io/colorfun/" />
+    <!-- open graph meta tags -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Color Fun" />
+    <!--   type can be of any other value according to ogp.me documentation  -->
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://thevipuljha.github.io/colorfun/" />
+    <meta
+      property="og:image"
+      content="https://thevipuljha.github.io/colorfun/banner.png"
+    />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:site_name" content="Color Fun" />
+    <meta
+      property="og:description"
+      content="A website for Color scheme generator for CSS3 projects"
+    />
+    <!-- twitter cards meta tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Color Fun" />
+    <meta property="twitter:creator" content="@thevipuljha" />
+    <meta
+      property="twitter:description"
+      content="A website for Color scheme generator for CSS3 projects"
+    />
+    <meta
+      property="twitter:image"
+      content="https://thevipuljha.github.io/colorfun/banner.png"
+    />
     <link rel="stylesheet" href="stylesheet.css" />
     <script src="script.js" defer></script>
-    <title>Color Fun</title>
   </head>
   <body>
     <div class="title-name">
       <h2 class="title">Color Fun</h2>
+    </div>
+
+    <div class="color-pallete" id="colorPallete">
+      click generate to create color scheme
     </div>
     <div class="color-option">
       <div class="color-numbers-div">
@@ -33,9 +80,6 @@
       <div class="generate-button-wrapper">
         <button id="generateColor" onclick="generatePallete()">GENERATE</button>
       </div>
-    </div>
-    <div class="color-pallete" id="colorPallete">
-      click generate to create color scheme
     </div>
   </body>
 </html>
