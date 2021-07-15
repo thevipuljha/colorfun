@@ -44,6 +44,20 @@ body {
     flex-shrink: 1;
 }
 
+.pallete-color:hover {
+    flex-grow: 2;
+}
+
+.pallete-color:first-child {
+    border-top-left-radius   : 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.pallete-color:last-child {
+    border-top-right-radius   : 16px;
+    border-bottom-right-radius: 16px;
+}
+
 .color-option {
     width          : 100%;
     display        : flex;
@@ -81,8 +95,11 @@ body {
 
 @media (min-width: 560px) {
     body {
-        width    : 80vw;
-        font-size: 1.4em;
+        width: 80vw;
+    }
+
+    .color-pallete {
+        height: 200px;
     }
 }
 
