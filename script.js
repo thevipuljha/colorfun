@@ -27,6 +27,8 @@ function increamentNumberOfColors() {
 }
 
 function generatePallete() {
+  // dom -> document object model
+  document.getElementById;
   const palleteDiv = getElementById("colorPallete");
   palleteDiv.innerHTML = "";
   palleteDiv.classList.add("has-color-pallete");
@@ -34,5 +36,12 @@ function generatePallete() {
     const newColorDiv = getNewColorDiv();
     newColorDiv.style.backgroundColor = getRandomColor();
     palleteDiv.appendChild(newColorDiv);
+  }
+}
+
+function changeColor() {
+  let collection = document.getElementsByClassName("pallete-color");
+  for (let index = 0; index < collection.length; index++) {
+    collection[index].style.backgroundColor = getRandomColor();
   }
 }
