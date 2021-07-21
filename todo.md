@@ -6,3 +6,5 @@
 - [ ] lock any number of colors
 - [ ] error on going less than locked color
 - [ ] add space, ctr-z,ctrl-y events
+- [ ] avoid having two same colors
+- [ ] store colors in hex
