@@ -1,6 +1,5 @@
 const getElementById = (id) => document.getElementById(id);
 const getColorNumberElement = () => getElementById("numberOfColors");
-const getNumberOfColors = () => Number(getColorNumberElement().innerText);
 const getRandomNumber = () => Math.round(Math.random() * 256);
 
 function getRandomColor() {
@@ -13,28 +12,33 @@ function getRandomColor() {
 function getNewColorDiv() {
   const newElement = document.createElement("div");
   newElement.className = "pallete-color";
+  newElement.style.backgroundColor = getRandomColor();
   return newElement;
 }
 
-function decreamentNumberOfColors() {
-  if (getNumberOfColors() > 3)
-    getColorNumberElement().innerText = getNumberOfColors() - 1;
+class colorsCounter {
+  constructor() {
+    let totalNumberOfColors = 5;
+    this.incrementNumberOfColors = () => {
+      if (totalNumberOfColors < 7)
+        getColorNumberElement().innerText = ++totalNumberOfColors;
+    };
+    this.decrementNumberOfColors = () => {
+      if (totalNumberOfColors > 3)
+        getColorNumberElement().innerText = --totalNumberOfColors;
+    };
+    this.getNumberOfColors = () => totalNumberOfColors;
+  }
 }
-
-function increamentNumberOfColors() {
-  if (getNumberOfColors() < 7)
-    getColorNumberElement().innerText = getNumberOfColors() + 1;
-}
+const colorCounter = new colorsCounter();
 
 function generatePallete() {
-  // dom -> document object model
-  document.getElementById;
   const palleteDiv = getElementById("colorPallete");
   palleteDiv.innerHTML = "";
   palleteDiv.classList.add("has-color-pallete");
-  for (let i = 0; i < getNumberOfColors(); i++) {
+  getColorNumberElement().innerText = colorCounter.getNumberOfColors();
+  for (let i = 0; i < colorCounter.getNumberOfColors(); i++) {
     const newColorDiv = getNewColorDiv();
-    newColorDiv.style.backgroundColor = getRandomColor();
     palleteDiv.appendChild(newColorDiv);
   }
 }
