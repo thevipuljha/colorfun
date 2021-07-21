@@ -5,3 +5,4 @@
 - [ ] save button for saving current scheme into storage
 - [ ] lock any number of colors
 - [ ] error on going less than locked color
+- [ ] add space, ctr-z,ctrl-y events
