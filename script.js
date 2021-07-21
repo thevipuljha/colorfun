@@ -1,12 +1,17 @@
 const getElementById = (id) => document.getElementById(id);
 const getColorNumberElement = () => getElementById("numberOfColors");
 const getRandomNumber = () => Math.round(Math.random() * 256);
+const getRandomHex = () => {
+  let hex = Number(getRandomNumber()).toString(16);
+  if (hex.length < 2) hex = "0" + hex;
+  return hex;
+};
 
 function getRandomColor() {
-  const red = getRandomNumber();
-  const green = getRandomNumber();
-  const blue = getRandomNumber();
-  return `rgb(${red}, ${green}, ${blue})`;
+  const red = getRandomHex();
+  const green = getRandomHex();
+  const blue = getRandomHex();
+  return `#${red}${green}${blue}`;
 }
 
 function getNewColorDiv(bgColor) {
