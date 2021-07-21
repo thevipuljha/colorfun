@@ -9,14 +9,14 @@ function getRandomColor() {
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
-function getNewColorDiv() {
+function getNewColorDiv(bgColor) {
   const newElement = document.createElement("div");
   newElement.className = "pallete-color";
-  newElement.style.backgroundColor = getRandomColor();
+  newElement.style.backgroundColor = bgColor;
   return newElement;
 }
 
-class colorsCounter {
+class ColorsCounter {
   constructor() {
     let totalNumberOfColors = 5;
     this.incrementNumberOfColors = () => {
@@ -28,19 +28,48 @@ class colorsCounter {
         getColorNumberElement().innerText = --totalNumberOfColors;
     };
     this.getNumberOfColors = () => totalNumberOfColors;
+    this.setNumberOfColors = (numberOfColors) => {
+      totalNumberOfColors = numberOfColors;
+    };
   }
 }
-const colorCounter = new colorsCounter();
+const colorCounter = new ColorsCounter();
+
+class PalleteList {
+  constructor() {
+    let listOfPallete = new Array();
+    let currentIndex = -1;
+    this.incrementCurrentIndex = () => {
+      if (currentIndex < listOfPallete.length - 1) currentIndex++;
+    };
+    this.decrementCurrentIndex = () => {
+      if (currentIndex > 0) currentIndex--;
+    };
+    this.addNewPallate = () => {
+      let colorsList = new Array();
+      for (let count = 0; count < colorCounter.getNumberOfColors(); count++) {
+        colorsList.push(getRandomColor());
+      }
+      listOfPallete.splice(currentIndex + 1);
+      listOfPallete.push(colorsList);
+      currentIndex++;
+    };
+    this.getCurrentPallate = () => listOfPallete[currentIndex];
+  }
+}
+const palleteListhandler = new PalleteList();
 
 function generatePallete() {
   const palleteDiv = getElementById("colorPallete");
   palleteDiv.innerHTML = "";
   palleteDiv.classList.add("has-color-pallete");
-  getColorNumberElement().innerText = colorCounter.getNumberOfColors();
-  for (let i = 0; i < colorCounter.getNumberOfColors(); i++) {
-    const newColorDiv = getNewColorDiv();
+  const colorsList = palleteListhandler.getCurrentPallate();
+  getColorNumberElement().innerText = colorsList.length;
+  colorCounter.setNumberOfColors(colorsList.length);
+  colorsList.forEach((currentColor) => {
+    const newColorDiv = getNewColorDiv(currentColor);
     palleteDiv.appendChild(newColorDiv);
-  }
+  });
 }
 
 function addEventListeners() {
@@ -49,6 +78,18 @@ function addEventListeners() {
   });
   getElementById("increaseColorNumber").addEventListener("click", () => {
     colorCounter.incrementNumberOfColors();
+  });
+  getElementById("undoButton").addEventListener("click", () => {
+    palleteListhandler.decrementCurrentIndex();
+    generatePallete();
+  });
+  getElementById("redoButton").addEventListener("click", () => {
+    palleteListhandler.incrementCurrentIndex();
+    generatePallete();
+  });
+  getElementById("generateButton").addEventListener("click", () => {
+    palleteListhandler.addNewPallate();
+    generatePallete();
   });
 }
 
@@ -60,7 +101,7 @@ function changeColor() {
 }
 function initiate() {
   addEventListeners();
-  generatePallete();
+  getElementById("generateButton").click();
 }
 
 window.onload = initiate;
