@@ -1,6 +1,7 @@
 - [ ] show color code on expansion
 - [ ] copy color code on code click
-- [ ] undo ability
+- [x] undo ability
+- [x] redo ability
 - [ ] copy css code for the scheme
 - [ ] save button for saving current scheme into storage
 - [ ] lock any number of colors
