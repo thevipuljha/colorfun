@@ -43,9 +43,24 @@ function generatePallete() {
   }
 }
 
+function addEventListeners() {
+  getElementById("decreaseColorNumber").addEventListener("click", () => {
+    colorCounter.decrementNumberOfColors();
+  });
+  getElementById("increaseColorNumber").addEventListener("click", () => {
+    colorCounter.incrementNumberOfColors();
+  });
+}
+
 function changeColor() {
   let collection = document.getElementsByClassName("pallete-color");
   for (let index = 0; index < collection.length; index++) {
     collection[index].style.backgroundColor = getRandomColor();
   }
 }
+function initiate() {
+  addEventListeners();
+  generatePallete();
+}
+
+window.onload = initiate;
