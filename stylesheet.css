@@ -1,3 +1,33 @@
+@font-face {
+    font-family : 'Noto Sans JP';
+    font-style  : normal;
+    font-display: swap;
+    font-weight : 300;
+    src         : local(''),
+        url('fonts/noto-sans-jp-v28-latin-300.woff2') format('woff2'),
+        url('fonts/noto-sans-jp-v28-latin-300.woff') format('woff');
+}
+
+@font-face {
+    font-family : 'Noto Sans JP';
+    font-style  : normal;
+    font-display: swap;
+    font-weight : 400;
+    src         : local(''),
+        url('fonts/noto-sans-jp-v28-latin-regular.woff2') format('woff2'),
+        url('fonts/noto-sans-jp-v28-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family : 'Noto Sans JP';
+    font-style  : normal;
+    font-display: swap;
+    font-weight : 500;
+    src         : local(''),
+        url('fonts/noto-sans-jp-v28-latin-500.woff2') format('woff2'),
+        url('fonts/noto-sans-jp-v28-latin-500.woff') format('woff');
+}
+
 html {
     width : 95%;
     margin: 0 auto;
@@ -6,15 +36,14 @@ html {
 body {
     width      : 84vw;
     margin     : 0 auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Noto Sans JP", Helvetica, sans-serif;
 }
 
 .title-name {
-    text-transform: uppercase;
-    color         : crimson;
-    text-align    : center;
-    font-size     : xx-large;
-    font-weight   : 700;
+    text-transform : uppercase;
+    color          : crimson;
+    text-align     : center;
+    text-decoration: underline;
 }
 
 .color-pallete {

@@ -53,7 +53,7 @@
   </head>
   <body>
     <div class="title-name">
-      <h2 class="title">Color Fun</h2>
+      <h1 class="title">Color Fun</h1>
     </div>
 
     <div class="color-pallete" id="colorPallete">
@@ -61,19 +61,11 @@
     </div>
     <div class="color-option">
       <div class="color-numbers-div">
-        <button
-          class="color-number-change-button"
-          id="decreaseColorNumber"
-          onclick="colorCounter.decrementNumberOfColors() "
-        >
+        <button class="color-number-change-button" id="decreaseColorNumber">
           -
         </button>
         <span class="number-of-colors" id="numberOfColors">5</span>
-        <button
-          class="color-number-change-button"
-          id="increaseColorNumber"
-          onclick="colorCounter.incrementNumberOfColors()"
-        >
+        <button class="color-number-change-button" id="increaseColorNumber">
           +
         </button>
       </div>
@@ -81,6 +73,5 @@
         <button id="generateColor" onclick="generatePallete()">GENERATE</button>
       </div>
     </div>
-    <button id="count" onclick="changeColor()">click to count</button>
   </body>
 </html>
