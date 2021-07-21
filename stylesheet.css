@@ -79,7 +79,7 @@ body {
     border-bottom-right-radius: 16px;
 }
 
-.color-option {
+.options-container {
     width          : 100%;
     display        : flex;
     flex-direction : row;
@@ -105,7 +105,25 @@ body {
 }
 
 #generateColor {
-    padding         : 0 10px;
+    padding         : 0 8px;
+    height          : 36px;
+    border-radius   : 12px;
+    font-size       : medium;
+    background-color: coral;
+    font-weight     : bolder;
+    border          : none;
+}
+
+.undo-redo-container {
+    display        : flex;
+    height         : 100%;
+    align-items    : center;
+    justify-content: space-between;
+}
+
+.undo-redo-container button {
+    padding         : 0 8px;
+    margin          : 0 4px;
     height          : 36px;
     border-radius   : 12px;
     font-size       : medium;
