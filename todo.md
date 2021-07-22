@@ -1,5 +1,5 @@
-- [ ] show color code on expansion
-- [ ] copy color code on code click
+- [x] show color code on expansion
+- [x] copy color code on code click
 - [x] undo ability
 - [x] redo ability
 - [ ] copy css code for the scheme

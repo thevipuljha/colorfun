@@ -90,13 +90,17 @@ body {
 }
 
 .pallete-color {
-    height     : 10em;
-    flex-grow  : 1;
-    flex-shrink: 1;
+    height         : 10em;
+    flex-grow      : 1;
+    flex-shrink    : 1;
+    display        : flex;
+    flex-flow      : column nowrap;
+    align-items    : center;
+    justify-content: center;
 }
 
-.pallete-color:hover {
-    flex-grow: 1.5;
+.pallete-color:hover .hex-code-span {
+    display: inline-block;
 }
 
 .pallete-color:first-child {
@@ -107,6 +111,18 @@ body {
 .pallete-color:last-child {
     border-top-right-radius   : 16px;
     border-bottom-right-radius: 16px;
+}
+
+.hex-code-span {
+    width           : 80px;
+    text-align      : center;
+    text-transform  : uppercase;
+    background-color: #0D0D0DC4;
+    border-radius   : 1em;
+    color           : #fff;
+    display         : none;
+    font-size       : small;
+    z-index         : 1;
 }
 
 .options-container {
@@ -166,6 +182,10 @@ button {
 
     .color-pallete {
         height: 240px;
+    }
+
+    .hex-code-span {
+        font-size: medium;
     }
 }
 

@@ -1,6 +1,12 @@
 const getElementById = (id) => document.getElementById(id);
 const getColorNumberElement = () => getElementById("numberOfColors");
 const getRandomNumber = (limit) => Math.floor(Math.random() * limit);
+const createElement = (tag, className, id) => {
+  const newElement = document.createElement(tag);
+  if (className !== undefined) newElement.className = className;
+  if (id !== undefined) newElement.id = id;
+  return newElement;
+};
 const getRandomHex = () => {
   let hex = Number(getRandomNumber(256)).toString(16);
   if (hex.length < 2) hex = "0" + hex;
@@ -14,11 +20,27 @@ function getRandomColor() {
   return `#${red}${green}${blue}`;
 }
 
+function copyToClipboard(dataToCopy) {
+  function listener(event) {
+    event.clipboardData.setData("text/plain", dataToCopy);
+    event.preventDefault();
+  }
+  document.addEventListener("copy", listener);
+  document.execCommand("copy");
+  document.removeEventListener("copy", listener);
+}
 function getNewColorDiv(bgColor) {
-  const newElement = document.createElement("div");
-  newElement.className = "pallete-color";
-  newElement.style.backgroundColor = bgColor;
-  return newElement;
+  const newColorDiv = createElement("div", "pallete-color");
+  newColorDiv.style.backgroundColor = bgColor;
+  const newHexSpan = createElement("span", "hex-code-span");
+  newHexSpan.innerText = bgColor;
+  newColorDiv.addEventListener("click", () => {
+    copyToClipboard(bgColor);
+    newHexSpan.innerText = "Copied";
+    setTimeout(() => (newHexSpan.innerText = bgColor), 2000);
+  });
+  newColorDiv.appendChild(newHexSpan);
+  return newColorDiv;
 }
 
 class ColorsCounter {
