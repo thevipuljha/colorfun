@@ -44,6 +44,7 @@ class PalleteList {
   constructor() {
     let listOfPallete = new Array();
     let currentIndex = -1;
+    const fixedLengthOfPalletes = 50;
     this.incrementCurrentIndex = () => {
       if (currentIndex < listOfPallete.length - 1) currentIndex++;
     };
@@ -51,6 +52,10 @@ class PalleteList {
       if (currentIndex > 0) currentIndex--;
     };
     this.addNewPallate = () => {
+      if (listOfPallete.length == fixedLengthOfPalletes) {
+        listOfPallete.shift();
+        currentIndex--;
+      }
       let colorsList = new Array();
       for (let count = 0; count < colorCounter.getNumberOfColors(); count++) {
         colorsList.push(getRandomColor());
@@ -67,7 +72,6 @@ const palleteListhandler = new PalleteList();
 function generatePallete() {
   const palleteDiv = getElementById("colorPallete");
   palleteDiv.innerHTML = "";
-  palleteDiv.classList.add("has-color-pallete");
   const colorsList = palleteListhandler.getCurrentPallate();
   getColorNumberElement().innerText = colorsList.length;
   colorCounter.setNumberOfColors(colorsList.length);
