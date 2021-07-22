@@ -9,3 +9,5 @@
 - [ ] add space, ctr-z,ctrl-y events
 - [ ] avoid having two same colors
 - [x] store colors in hex
+- [ ] limit number of undos available
+- [x] have rainbow color in title
