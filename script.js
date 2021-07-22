@@ -1,8 +1,8 @@
 const getElementById = (id) => document.getElementById(id);
 const getColorNumberElement = () => getElementById("numberOfColors");
-const getRandomNumber = () => Math.round(Math.random() * 256);
+const getRandomNumber = (limit) => Math.floor(Math.random() * limit);
 const getRandomHex = () => {
-  let hex = Number(getRandomNumber()).toString(16);
+  let hex = Number(getRandomNumber(256)).toString(16);
   if (hex.length < 2) hex = "0" + hex;
   return hex;
 };
@@ -44,7 +44,7 @@ class PalleteList {
   constructor() {
     let listOfPallete = new Array();
     let currentIndex = -1;
-    const fixedLengthOfPalletes = 50;
+    const fixedLengthOfPalletes = 1000;
     this.incrementCurrentIndex = () => {
       if (currentIndex < listOfPallete.length - 1) currentIndex++;
     };
@@ -69,10 +69,21 @@ class PalleteList {
 }
 const palleteListhandler = new PalleteList();
 
+function changeTitleColors(currentColors) {
+  let count = 1;
+  for (let index = 0; count < 8; count++, index++) {
+    if (index === currentColors.length) index = 0;
+    document.documentElement.style.setProperty(
+      `--title-color-${count}`,
+      currentColors[index]
+    );
+  }
+}
 function generatePallete() {
   const palleteDiv = getElementById("colorPallete");
   palleteDiv.innerHTML = "";
   const colorsList = palleteListhandler.getCurrentPallate();
+  changeTitleColors(colorsList);
   getColorNumberElement().innerText = colorsList.length;
   colorCounter.setNumberOfColors(colorsList.length);
   colorsList.forEach((currentColor) => {

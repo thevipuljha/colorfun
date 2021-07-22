@@ -1,3 +1,41 @@
+:root {
+    --title-color-1: #3fb0ac;
+    --title-color-2: #f57c00;
+    --title-color-3: #8e24aa;
+    --title-color-4: #558b2f;
+    --title-color-5: #d3002e;
+    --title-color-6: #3f51b5;
+    --title-color-7: #ff00dd;
+}
+
+.text-color1 {
+    color: var(--title-color-1);
+}
+
+.text-color2 {
+    color: var(--title-color-2);
+}
+
+.text-color3 {
+    color: var(--title-color-3);
+}
+
+.text-color4 {
+    color: var(--title-color-4);
+}
+
+.text-color5 {
+    color: var(--title-color-5);
+}
+
+.text-color6 {
+    color: var(--title-color-6);
+}
+
+.text-color7 {
+    color: var(--title-color-7);
+}
+
 @font-face {
     font-family : 'Noto Sans JP';
     font-style  : normal;
@@ -113,6 +151,7 @@ button {
 
 .generate-button-wrapper {
     flex-grow: 1;
+    max-width: 300px;
 }
 
 #generateButton {
@@ -126,7 +165,7 @@ button {
     }
 
     .color-pallete {
-        height: 200px;
+        height: 240px;
     }
 }
 
