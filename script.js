@@ -149,10 +149,14 @@ function addEventListeners() {
       colorPalleteString += `--color-${index + 1} : ${color};\n`;
     });
     copyToClipboard(colorPalleteString + "}");
-    const currentTitle = getElementById("title").innerHTML;
+    const originalTitle = `<span class="text-color1">C</span><span class="text-color2">o</span
+    ><span class="text-color3">l</span><span class="text-color2">o</span
+    ><span class="text-color4">r</span>&nbsp;<span class="text-color5"
+      >F</span
+    ><span class="text-color6">u</span><span class="text-color7">n</span>`;
     changeTitleToCopied();
     setTimeout(() => {
-      getElementById("title").innerHTML = currentTitle;
+      getElementById("title").innerHTML = originalTitle;
     }, 1500);
   });
   document.addEventListener("keydown", function (event) {

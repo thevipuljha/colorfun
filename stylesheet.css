@@ -130,7 +130,8 @@ body {
     z-index         : 1;
 }
 
-.options-container {
+.options-container,
+.action-container {
     width          : 100%;
     display        : flex;
     flex-flow      : row wrap;
@@ -139,10 +140,10 @@ body {
 }
 
 .options-container div {
-    width          : max-content;
+    width          : 40%;
     display        : flex;
     align-items    : center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 button {
@@ -155,14 +156,17 @@ button {
     font-weight     : bolder;
     color           : white;
     padding         : 0 10px;
-    margin          : 10px 4px;
+    margin          : 10px 6px;
     white-space     : nowrap;
+    user-select     : none;
 }
 
 .color-number-change-button {
     width        : 44px;
     border-radius: 50%;
-    font-size    : x-large;
+    display      : grid;
+    place-items  : center;
+    font-size    : 2em;
 }
 
 .number-of-colors {
@@ -171,25 +175,16 @@ button {
     font-weight: bolder;
 }
 
-.generate-button-wrapper {
-    flex-grow: 1;
-    max-width: 300px;
-}
 
-#generateButton {
-    margin: 1em 0;
-    width : 100%;
-}
-
+.generate-button-wrapper,
 .scheme-copy-container {
-    margin-top     : 10px;
-    display        : flex;
-    justify-content: center;
+    width: 40%;
 }
 
+#generateButton,
 #copyPaletteButton {
-    width  : max-content;
-    padding: 10px 20px;
+    width : 100%;
+    margin: 10px 0;
 }
 
 @media (min-width: 560px) {
@@ -197,8 +192,8 @@ button {
         width: 80vw;
     }
 
-    .color-pallete {
-        height: 240px;
+    .pallete-color {
+        height: 12em;
     }
 
     .hex-code-span {
