@@ -111,6 +111,24 @@ function addEventListeners() {
     palleteListhandler.addNewPallate();
     generatePallete();
   });
+
+  document.onkeyup = function (event) {
+    if (event.key === "ctrlKey" && event.key == 90) {
+      alert("Ctrl+z");
+    }
+  };
+
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.code === "KeyZ" && !event.shiftKey)
+      getElementById("undoButton").click();
+
+    if (
+      (event.ctrlKey && event.code === "KeyZ" && event.shiftKey) ||
+      (event.ctrlKey && event.code === "KeyY")
+    )
+      getElementById("redoButton").click();
+    if (event.code === "Space") getElementById("generateButton").click();
+  });
 }
 
 function changeColor() {
