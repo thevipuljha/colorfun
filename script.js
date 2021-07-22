@@ -37,7 +37,7 @@ function getNewColorDiv(bgColor) {
   newColorDiv.addEventListener("click", () => {
     copyToClipboard(bgColor);
     newHexSpan.innerText = "Copied";
-    setTimeout(() => (newHexSpan.innerText = bgColor), 2000);
+    setTimeout(() => (newHexSpan.innerText = bgColor), 1500);
   });
   newColorDiv.appendChild(newHexSpan);
   return newColorDiv;
@@ -113,7 +113,16 @@ function generatePallete() {
     palleteDiv.appendChild(newColorDiv);
   });
 }
-
+function changeTitleToCopied() {
+  const title = getElementById("title");
+  title.innerHTML = "";
+  const newTitleLetters = "Copied!".split("");
+  newTitleLetters.forEach((currentLetter, index) => {
+    const newSpan = createElement("span", `text-color${index + 1}`);
+    newSpan.innerText = currentLetter;
+    title.appendChild(newSpan);
+  });
+}
 function addEventListeners() {
   getElementById("decreaseColorNumber").addEventListener("click", () => {
     colorCounter.decrementNumberOfColors();
@@ -133,13 +142,19 @@ function addEventListeners() {
     palleteListhandler.addNewPallate();
     generatePallete();
   });
-
-  document.onkeyup = function (event) {
-    if (event.key === "ctrlKey" && event.key == 90) {
-      alert("Ctrl+z");
-    }
-  };
-
+  getElementById("copyPaletteButton").addEventListener("click", () => {
+    const currentPallete = palleteListhandler.getCurrentPallate();
+    let colorPalleteString = `:root {\n/* usage => var(--color-{number}) */\n`;
+    currentPallete.forEach((color, index) => {
+      colorPalleteString += `--color-${index + 1} : ${color};\n`;
+    });
+    copyToClipboard(colorPalleteString + "}");
+    const currentTitle = getElementById("title").innerHTML;
+    changeTitleToCopied();
+    setTimeout(() => {
+      getElementById("title").innerHTML = currentTitle;
+    }, 1500);
+  });
   document.addEventListener("keydown", function (event) {
     if (event.ctrlKey && event.code === "KeyZ" && !event.shiftKey)
       getElementById("undoButton").click();

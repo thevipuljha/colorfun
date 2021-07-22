@@ -77,8 +77,13 @@ body {
     font-family: "Noto Sans JP", Helvetica, sans-serif;
 }
 
-.title {
+#title {
     text-align: center;
+}
+
+#title span {
+    padding       : 0px 4px;
+    text-transform: uppercase;
 }
 
 .color-pallete {
@@ -151,6 +156,7 @@ button {
     color           : white;
     padding         : 0 10px;
     margin          : 10px 4px;
+    white-space     : nowrap;
 }
 
 .color-number-change-button {
@@ -173,6 +179,17 @@ button {
 #generateButton {
     margin: 1em 0;
     width : 100%;
+}
+
+.scheme-copy-container {
+    margin-top     : 10px;
+    display        : flex;
+    justify-content: center;
+}
+
+#copyPaletteButton {
+    width  : max-content;
+    padding: 10px 20px;
 }
 
 @media (min-width: 560px) {

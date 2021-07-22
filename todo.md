@@ -2,7 +2,7 @@
 - [x] copy color code on code click
 - [x] undo ability
 - [x] redo ability
-- [ ] copy css code for the scheme
+- [x] copy css code for the scheme
 - [ ] save button for saving current scheme into storage
 - [ ] lock any number of colors
 - [ ] error on going less than locked color
