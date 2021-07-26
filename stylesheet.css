@@ -147,7 +147,7 @@ body {
 }
 
 button {
-    background-color: deeppink;
+    background-color: purple;
     border          : none;
     height          : 44px;
     width           : 5em;
@@ -159,7 +159,9 @@ button {
     margin          : 10px 6px;
     white-space     : nowrap;
     user-select     : none;
+    transition      : all 500ms ease-out;
 }
+
 
 .color-number-change-button {
     width        : 44px;
@@ -185,6 +187,10 @@ button {
 #copyPaletteButton {
     width : 100%;
     margin: 10px 0;
+}
+
+button:active {
+    transform: translateY(2px);
 }
 
 @media (min-width: 560px) {
