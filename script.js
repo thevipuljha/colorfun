@@ -19,7 +19,13 @@ function getRandomColor() {
   const blue = getRandomHex();
   return `#${red}${green}${blue}`;
 }
-
+const getTextColor = (hexColor) => {
+  const r = parseInt(hexColor.slice(1, 3), 16) * 299;
+  const g = parseInt(hexColor.slice(3, 5), 16) * 587;
+  const b = parseInt(hexColor.slice(5), 16) * 114;
+  const sum = Math.round((r + g + b) / 1000);
+  return sum > 128 ? "black" : "white";
+};
 function copyToClipboard(dataToCopy) {
   function listener(event) {
     event.clipboardData.setData("text/plain", dataToCopy);
@@ -34,6 +40,7 @@ function getNewColorDiv(bgColor) {
   newColorDiv.style.backgroundColor = bgColor;
   const newHexSpan = createElement("span", "hex-code-span");
   newHexSpan.innerText = bgColor;
+  newHexSpan.style.color = getTextColor(bgColor);
   newColorDiv.addEventListener("click", () => {
     copyToClipboard(bgColor);
     newHexSpan.innerText = "Copied";
