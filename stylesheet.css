@@ -1,11 +1,13 @@
 :root {
-    --title-color-1: #3fb0ac;
-    --title-color-2: #f57c00;
-    --title-color-3: #8e24aa;
-    --title-color-4: #558b2f;
-    --title-color-5: #d3002e;
-    --title-color-6: #3f51b5;
-    --title-color-7: #ff00dd;
+    --title-color-1   : #3fb0ac;
+    --title-color-2   : #f57c00;
+    --title-color-3   : #8e24aa;
+    --title-color-4   : #558b2f;
+    --title-color-5   : #d3002e;
+    --title-color-6   : #3f51b5;
+    --title-color-7   : #ff00dd;
+    --number-of-colors: 5;
+    --current-width   : calc(100% / var(--number-of-colors));
 }
 
 .text-color1 {
@@ -72,9 +74,14 @@ html {
 }
 
 body {
-    width      : 100%;
-    margin     : 0 auto;
-    font-family: "Noto Sans JP", Helvetica, sans-serif;
+    width                      : 100%;
+    margin                     : 0 auto;
+    font-family                : "Noto Sans JP", Helvetica, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout      : none;
+    -webkit-user-select        : none;
+    -moz-user-select           : none;
+    user-select                : none;
 }
 
 #title {
@@ -94,18 +101,20 @@ body {
     justify-content: center;
 }
 
+
 .pallete-color {
     height         : 10em;
-    flex-grow      : 1;
-    flex-shrink    : 1;
     display        : flex;
     flex-flow      : column nowrap;
     align-items    : center;
     justify-content: center;
+    transition     : all 200ms cubic-bezier(.39, .58, .57, 1);
+    width          : var(--current-width);
+    cursor         : pointer;
 }
 
-.pallete-color:hover .hex-code-span {
-    display: inline-block;
+.pallete-color:hover {
+    width: calc(var(--current-width) + 10%);
 }
 
 .pallete-color:first-child {
@@ -119,15 +128,22 @@ body {
 }
 
 .hex-code-span {
-    width           : 80px;
     text-align      : center;
     text-transform  : uppercase;
-    background-color: #0D0D0DC4;
+    background-color: #00000054;
     border-radius   : 1em;
     color           : #fff;
-    display         : none;
     font-size       : small;
     z-index         : 1;
+    padding         : 4px 10px;
+    opacity         : 0;
+    transition      : all 300ms cubic-bezier(.89, -0.06, .47, 1.04);
+}
+
+.pallete-color:hover .hex-code-span {
+    display: block;
+    opacity: 1;
+
 }
 
 .options-container,
@@ -158,10 +174,18 @@ button {
     padding         : 0 10px;
     margin          : 10px 6px;
     white-space     : nowrap;
-    user-select     : none;
-    transition      : all 500ms ease-out;
+    cursor          : pointer;
+    transition      : transform 100ms ease-out;
+    outline         : none;
 }
 
+*:active {
+    outline: none !important;
+}
+
+button:active {
+    transform: scale(0.9);
+}
 
 .color-number-change-button {
     width        : 44px;
@@ -189,9 +213,7 @@ button {
     margin: 10px 0;
 }
 
-button:active {
-    transform: translateY(2px);
-}
+
 
 @media (min-width: 560px) {
     body {

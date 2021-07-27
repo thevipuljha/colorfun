@@ -107,6 +107,10 @@ function generatePallete() {
   const colorsList = palleteListhandler.getCurrentPallate();
   changeTitleColors(colorsList);
   getColorNumberElement().innerText = colorsList.length;
+  document.documentElement.style.setProperty(
+    "--number-of-colors",
+    colorsList.length
+  );
   colorCounter.setNumberOfColors(colorsList.length);
   colorsList.forEach((currentColor) => {
     const newColorDiv = getNewColorDiv(currentColor);
