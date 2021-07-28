@@ -169,19 +169,19 @@ body {
 }
 
 button {
-    background-color: #00599c;
+    background-color: #990606;
     border          : none;
     height          : 44px;
-    width           : 5em;
+    min-width       : 56px;
     border-radius   : 1em;
     font-size       : medium;
-    font-weight     : bolder;
+    font-weight     : 600;
     color           : white;
     padding         : 0;
     margin          : 10px 6px;
     white-space     : nowrap;
     cursor          : pointer;
-    outline-color   : #00599c;
+    outline-color   : #990606;
     outline-offset  : 2px;
     transition      : box-shadow 200ms linear;
     box-shadow      : 0 4px 6px 0 #636363;
@@ -198,7 +198,7 @@ button {
     display      : grid;
     place-items  : center;
     border-radius: 1em;
-    background   : #1151ff;
+    background   : #fa0f0f;
     will-change  : transform;
     transform    : translateY(-4px);
     transition   : filter 200ms ease-in-out, transform 400ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
@@ -218,20 +218,15 @@ button:hover .front {
     filter: brightness(140%);
 }
 
-.color-number-change-button {
-    width        : 44px;
-    border-radius: 50%;
-    display      : grid;
-    place-items  : center;
-    font-size    : 2em;
-}
-
 .number-of-colors {
     margin     : 0 5px;
     font-size  : x-large;
     font-weight: bolder;
 }
 
+.color-numbers-div button {
+    font-size: 2em;
+}
 
 .generate-button-wrapper,
 .scheme-copy-container {
