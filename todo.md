@@ -11,3 +11,4 @@
 - [x] store colors in hex
 - [x] limit number of undos available
 - [x] have rainbow color in title
+- [ ] have better gradient
